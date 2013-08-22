@@ -1,0 +1,51 @@
+html { margin: 0; padding: 0; }
+html { font: 85%/1.4 Arial, sans-serif;  }
+body { margin: 0; padding: 5px 20px; }
+code, pre { font-size: 100%; line-height: 1.2; background: #f0f0f0;
+    font-family: "Lucida Console", "Andale Mono", monospace; color: #333; }
+code { background: #f0f0f0; padding: 2px 4px; }
+pre { padding: 6px 4px; }
+pre code { padding: 0; }
+.clearfix:after { content: ""; display: table; clear: both; }
+
+h1 { font: normal normal 32px/1.2 "Times New Roman", serif; 
+        margin: 5px 0; color: #666; padding: 0 10px; }
+
+h2 { font: normal normal 24px/1.2 "Times New Roman", serif; color: #333; margin: -5px 10px 4px -10px; 
+    float: left; background: #fff; padding: 4px 8px; border-radius: 0 0 6px 0;  }
+p { margin: 0 0 1em; }
+.page-threads-list { max-width: 50em; margin: 0 auto; }
+
+.b-threads-list { clear: both; }
+.b-thread { margin: 10px 0 40px; }
+.b-post { padding: 5px 10px; border-radius: 6px; }
+.b-post .post-number { float: right; padding: 4px 6px; color: #666; font-size: 85%; line-height: 1; }
+.b-post h2 + p { clear: left; }
+
+.b-post-last-comments { padding: 5px 0 5px 120px; }
+.b-post-last-comments .b-comment { font-size: 90%; line-height: 1.4; 
+        padding-top: 8px; color: #333;}
+.b-comment .post-number { float: right; padding: 2px 6px; color: #888; font-size: 85%; display: none; }
+
+.b-post-info-line { color: #999; text-align: center; font-size: 85%; }
+.b-post-actions button { margin: 0 0 0 15px; float: right;  }
+.button-action { background: #f0f0f0; 
+    border: 1px solid #aaa; border-radius: 3px; padding: 3px 10px; cursor: pointer; }
+.button-action:hover { background-color: #e0e0ff; }
+
+.b-pager { padding: 10px 0; }
+.b-pager .current { padding: 4px 15px; font-weight: bold; }
+.b-pager .hellip { padding: 4px 20px; }
+.b-pager .label { color: #666; padding-right: 10px; }
+.b-pager a { padding: 4px 15px; background: #999; border-radius: 6px; font-weight: bold;
+color: #fff; text-decoration: none; }
+.b-pager a:hover { background: #99f; }
+
+.b-footer { height: 40px; }
+
+.hide-text { display: none; }
+
+.b-top-actions { padding: 10px; }
+.b-top-actions button, .b-top-actions a.button { float: left; }
+
+a.button-action { line-height: 1.5;  text-decoration: none; color: #000; }
