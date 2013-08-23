@@ -3,8 +3,8 @@
     <a href="Post/Add" class="button button-action">Создать новый тред</a>
   </div>
 <?php
-if(!empty($data)){
-  	foreach ($data as $row){
+if(!empty($posts)){
+  	foreach ($posts as $row){
   		?>
 <div class="b-threads-list">
     <div class="b-thread">
@@ -13,18 +13,24 @@ if(!empty($data)){
                 <h2 class="thread-topic"><?=$row['title']?></h2>
                 <p><?=$row['content']?></p>
                 <div class="b-comment">
-                	<?php
-                	if(!empty($row['coment'])){
-                		foreach($row['coment'] as $coment){
-                			?>
-                	<div class="post-number"><?="#".$coment['id']?></div>
-                	<p><?=$coment['content']?></p>
-                			<?php
-                		}
-                	} else {
-                		echo "Коментов нет";
-                	}
-                	?>
+<?php
+$comsToPost = array();
+foreach($comments as $coment){
+    if($coment['post_id'] == $row['id']){
+        $comsToPost[] = $coment; 
+    }
+}
+if(!empty($comsToPost)){ 
+    foreach($comsToPost as $comToPost){              				
+        ?>
+<div class="post-number"><?="#".$$comToPost['id']?></div>
+<p><?=$comToPost['content']?></p>
+<?php
+    }
+} else {
+    echo "Коментов нет";
+}
+?>
                 </div>
         </div>
     </div>
