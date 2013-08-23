@@ -10,15 +10,11 @@ class MainModel extends Model
         $result = array();
         foreach($posts as $post){
             $id=$post['id'];
-            var_dump($post['id']);
             $sql="SELECT * FROM coments WHERE post_id={$id}";
             $com=$db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
             $post['coment'] = $com;
-            //var_dump($post['coment']);
             $result[]=$post;
         }
-
-    	//$fetch = $result->fetchAll(PDO::FETCH_ASSOC);
     	return $result;
     }
 }
