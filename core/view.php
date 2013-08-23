@@ -3,9 +3,9 @@ class View
 {
     function generate($contentView, $data = null)
     {
-        /*if (is_array($date)) {
-            extract($date);
-        }*/
+        if (is_array($data)) {
+            extract($data);
+        }
         include "application/views/templateView.php";
     }
 }
