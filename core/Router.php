@@ -12,19 +12,11 @@ class Router
         if (!empty($routes[3])) {
             $actionName = $routes[3];
         }
-        //$modelName      = $controllerName . "Model";
         $controllerName = $controllerName . "Controller";
         $actionName     = "action" . $actionName;
-        /*$modelFile      = $modelName . ".php";
-        $modelPath      = "application/models/" . $modelFile;
-        if (file_exists($modelPath)) {
-            include $modelPath;
-        }*/
         $controllerFile = $controllerName . ".php";
         $controllerPath = "application/controllers/" . $controllerFile;
-        if (file_exists($controllerPath)) {
-            include $controllerPath;
-        } else {
+        if (!file_exists($controllerPath)) {
             $this->error404();
         }
         $controller = new $controllerName;

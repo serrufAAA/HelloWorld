@@ -1,5 +1,5 @@
 <?php
-class DBConnect
+class BDClient
 {
     const DB_NAME = "test.db";
     private $db;
@@ -14,7 +14,7 @@ class DBConnect
     static function getInstance()
     {
         if (self::$_instance == null) {
-            self::$_instance = new DBConnect();
+            self::$_instance = new BDClient();
         }
         return self::$_instance;
     }
