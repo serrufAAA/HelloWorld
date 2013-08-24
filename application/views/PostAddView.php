@@ -1,6 +1,6 @@
 <form action="" method=post>
-Заголовок<input type=text name='tittle'><br>
-Содержание<input type=text name='content'>
+Заголовок   <textarea name='tittle'></textarea><br>
+Содержание  <textarea name='content'></textarea><br>
 <input type=submit value='Запостить!'>
 </form>
 <a href="../">Назад</a>

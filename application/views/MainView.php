@@ -23,7 +23,7 @@ foreach($comments as $coment){
 if(!empty($comsToPost)){ 
     foreach($comsToPost as $comToPost){              				
         ?>
-<div class="post-number"><?="#".$$comToPost['id']?></div>
+<div class="post-number"><?="#".$comToPost['id']?></div>
 <p><?=$comToPost['content']?></p>
 <?php
     }
@@ -34,6 +34,13 @@ if(!empty($comsToPost)){
                 </div>
         </div>
     </div>
+</div>
+<div class="b-post-actions clearfix">
+<form method='post'>
+    <button class="button-action button-reply" formaction="Comment/Add" name="post_id" value="<?=$row['id']?>">Добавить комментарий</button>
+</form>
+    <button class="button-action button-show-thread">Перейти в тред</button>
+</form>
 </div>
 <hr>
 <?php
