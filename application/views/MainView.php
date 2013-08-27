@@ -12,7 +12,7 @@ if(!empty($posts)){
   			<div class="post-number"><?="#".$row['id']?></div>
                 <h2 class="thread-topic"><?=$row['title']?></h2>
                 <p><?=$row['content']?></p>
-                <div class="b-comment">
+                <div class="b-post-last-comments">
 <?php
 $comsToPost = array();
 foreach($comments as $coment){
@@ -23,12 +23,14 @@ foreach($comments as $coment){
 if(!empty($comsToPost)){ 
     foreach($comsToPost as $comToPost){              				
         ?>
-<div class="post-number"><?="#".$comToPost['id']?></div>
-<p><?=$comToPost['content']?></p>
+                    <div class="b-comment">
+                        <div class="post-number"><?="#".$comToPost['id']?></div>
+                            <p><?=$comToPost['content']?></p>
+                    </div>
 <?php
     }
 } else {
-    echo "Коментов нет";
+    echo "<p>Коментов нет</p>";
 }
 ?>
                 </div>
@@ -38,7 +40,6 @@ if(!empty($comsToPost)){
 <div class="b-post-actions clearfix">
 <form method='post'>
     <button class="button-action button-reply" formaction="Comment/Add" name="post_id" value="<?=$row['id']?>">Добавить комментарий</button>
-</form>
     <button class="button-action button-show-thread">Перейти в тред</button>
 </form>
 </div>

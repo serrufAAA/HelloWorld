@@ -5,15 +5,6 @@ code, pre { font-size: 100%; line-height: 1.2; background: #f0f0f0;
     font-family: "Lucida Console", "Andale Mono", monospace; color: #333; }
 code { background: #f0f0f0; padding: 2px 4px; }
 pre { padding: 6px 4px; }
-textarea { height: 30%; width: 40%; border: 2px solid #E81E25; resize: none; }
-.textarea { height: 30%; width: 40%; border: 2px solid #E81E25; resize: none; }
-.text
-	{
-		height: 30%;
-		width: 40%;
-		border: 2px solid #E81E25;
-		resize: none;
-	}
 pre code { padding: 0; }
 .clearfix:after { content: ""; display: table; clear: both; }
 
