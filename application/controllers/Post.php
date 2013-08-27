@@ -12,7 +12,9 @@ class application_Controllers_Post extends core_Controller
 				$post->title=trim(strip_tags($_POST['tittle']));
 			}
 			if(!empty($_POST['content'])){
-				$post->content=trim($_POST['content']);
+				if(strlen($_POST['content']) > 3){
+					$post->content=trim($_POST['content']);
+				}
 			}
 		}
 		$time=time();

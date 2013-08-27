@@ -12,7 +12,9 @@ class application_Controllers_Comment extends core_Controller
 				$comment->post_id=$_POST['post_id'];
 			}
 			if(!empty($_POST['content'])){
-				$comment->content=trim($_POST['content']);
+				if(strlen($_POST['content']) > 3){
+					$comment->content=trim($_POST['content']);
+				}
 			}
 		}
 		$time=time();
