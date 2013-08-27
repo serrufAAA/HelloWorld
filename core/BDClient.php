@@ -1,5 +1,5 @@
 <?php
-class BDClient
+class core_BDClient
 {
     const DB_NAME = "test.db";
     private $db;
@@ -14,7 +14,7 @@ class BDClient
     static function getInstance()
     {
         if (self::$_instance == null) {
-            self::$_instance = new BDClient();
+            self::$_instance = new core_BDClient();
         }
         return self::$_instance;
     }

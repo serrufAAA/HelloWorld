@@ -1,5 +1,5 @@
 <?php
-class Comment
+class core_Comment
 {
 	public $content;
 	public $post_id;

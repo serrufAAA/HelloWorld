@@ -1,5 +1,5 @@
 <?php
-class Post
+class core_Post
 {
 	public $title;
 	public $content;

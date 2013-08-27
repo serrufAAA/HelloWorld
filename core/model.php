@@ -1,5 +1,5 @@
 <?php
-abstract class Model
+abstract class core_Model
 {
     
 }

@@ -1,5 +1,5 @@
 <?php
-class View
+class core_View
 {
     function generate($contentView, $data = null)
     {
