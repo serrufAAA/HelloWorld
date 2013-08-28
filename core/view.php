@@ -6,6 +6,6 @@ class core_View
         if (is_array($data)) {
             extract($data);
         }
-        include "application/views/templateView.php";
+        include "Application/views/templateView.php";
     }
 }

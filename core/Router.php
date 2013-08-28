@@ -12,29 +12,11 @@ class core_Router
         if (!empty($routes[3])) {
             $actionName = $routes[3];
         }
-        $controllerName = "application_Controllers_" . $controllerName;
+        $controllerName = "Application_Controllers_" . $controllerName;
         $actionName     = "action" . $actionName;
-        $controllerFile = $controllerName . ".php";
-        $controllerPath = "application/controllers/" . $controllerFile;
-        /*if (!file_exists($controllerPath)) {
-            $this->error404();
-        }*/
         $controller = new $controllerName;
         $action     = $actionName;
-        /*if (method_exists($controller, $action)) {
-            $controller->$action();
-        } else {
-            $this->error404();
-        }*/
         $controller->$action();
     }
-    
-    private function error404()
-    {
-            $host = 'http://' . $_SERVER['HTTP_HOST'] . '/' . "MVC/";
-            header('HTTP/1.1 404 Not Found');
-            header("Status: 404 Not Found");
-            header('Location:' . $host . 'Unknow');
-        }
 }
 ?>
