@@ -5,16 +5,16 @@ class application_Models_Comment extends Core_Model
 		$connect = core_BDClient::getInstance();
     	$db=$connect->getDb();
  		$sql="SELECT * FROM coments";
-    	$comments = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    	$comments = $db->query($sql)->fetchAll(PDO::FETCH_CLASS, "core_Comment");
     	return $comments;
 	}
 
 	function add($comment){
 		$connect = core_BDClient::getInstance();
 	    $db=$connect->getDb();
+	    $STH=$db->prepare("INSERT INTO coments (post_id, content, create_time) VALUES(:post_id, :content, :time)");
 	    if(!empty($comment->content)){
-	    	$sql="INSERT INTO coments (post_id, content, create_time) VALUES('{$comment->post_id}', '{$comment->content}', {$comment->time})";
-	    	$db->exec($sql);
+	    	$STH->execute((array)$comment);
 	    }
     }
 }
