@@ -7,10 +7,10 @@ class application_Controllers_Main extends core_Controller
 	function actionIndex()
     {	
         $this->view = new core_View();
-        $this->post = new application_Models_Post;
-        $this->comment = new application_Models_Comment;
-        $posts=$this->post->getPosts();
-        $comments=$this->comment->getAllComments();
+        $post = new application_Models_Post;
+        $comment = new application_Models_Comment;
+        $posts=$post->getPosts();
+        $comments=$comment->getAllComments();
     	//$data = $this->model->getAllPosts();
         //var_dump($data);
         $this->view->generate('MainView.php', array(
