@@ -1,10 +1,10 @@
 <?php
 function __autoload($class_name){
 	$path = explode('_', $class_name);
-    $filePath = implode(DIRECTORY_SEPARATOR, $path) . '.php';
+    $filePath = implode("/", $path) . '.php';
     require_once($filePath);
 }
-$config = new application_Config();
+$config = new Application_Config();
 $config->setConfig(array(
 	'dbName' => "test.db",
 	'dbUser' => "root")
