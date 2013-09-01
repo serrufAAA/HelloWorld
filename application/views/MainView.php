@@ -1,7 +1,21 @@
-<h1>Доска обсуждений: программирование</h1>
-<div class="b-top-actions clearfix">
-    <a href="Post/Add" class="button button-action">Создать новый тред</a>
+<head>
+    <meta charset="UTF-8">
+    <title>Программирование // доска обсуждений</title>
+    <link rel="stylesheet" href="css/board-style.css">
+</head>
+<body>
+<div class="l-header">
+    <div class="wrap">
+        <h1>Программирование</h1>
+    </div>
+    <div class="overlay"></div>
 </div>
+
+<div class="page-threads-list">
+    <div class="b-top-actions clearfix">
+        <a href="Post/Add" class="button button-action">Создать новый тред</a>
+    </div>
+
 <?php
 if(!empty($posts)){
    foreach ($posts as $row){
@@ -51,9 +65,11 @@ if(!empty($comsToPost)){
         <button class="button-action button-show-thread">Перейти в тред</button>
     </form>
 </div>
-<hr>
 <?php
     }
 } else {
 echo "<p>Нет ни одного треда. Хотите создать первый тред? </p>";
 }
+?>
+</div> 
+</body>
