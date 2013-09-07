@@ -43,7 +43,8 @@ class Application_Models_Comment extends Core_Model
 	    $STH=$db->prepare("SELECT * FROM coments WHERE post_id=:tread_id");
 	    $STH->bindParam(':tread_id', $tread_id);
 	    $STH->execute();
-	    $comments = $STH->fetchAll(PDO::FETCH_CLASS, "core_Comment");
+	    $STH->setFetchMode(PDO::FETCH_CLASS, 'core_Comment');
+	    $comments = $STH->fetchAll();
 	    return $comments;
 	}
 }
