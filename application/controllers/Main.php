@@ -1,8 +1,6 @@
 <?php
 class Application_Controllers_Main extends core_Controller
 {
-    private $post;
-    private $comment;
 
 	function actionIndex()
     {	
@@ -10,10 +8,12 @@ class Application_Controllers_Main extends core_Controller
         $post = new Application_Models_Post;
         $comment = new Application_Models_Comment;
         $posts=$post->getPosts();
+        $pageCount=$post->getPostsNumb();
         $comments=$comment->getAllComments();
         $this->view->generate('MainView.php', array(
         'posts' => $posts,
-        'comments' => $comments
+        'comments' => $comments,
+        'pagesCount' => $pageCount
         ));
     }
 }

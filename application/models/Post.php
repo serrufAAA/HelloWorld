@@ -13,9 +13,19 @@ class Application_Models_Post extends Core_Model
 	function getPosts(){
 		$connect = core_BDClient::getInstance();
     	$db=$connect->getDb();
-    	$msq= "SELECT * FROM  post ORDER by id DESC";
+    	$msq= "SELECT * FROM  post ORDER by id DESC LIMIT 0,10";
     	$posts = $db->query($msq)->fetchAll(PDO::FETCH_CLASS, "core_Post");
     	return $posts;
+	}
+
+	function getPostsNumb(){
+		$connect = core_BDClient::getInstance();
+    	$db=$connect->getDb();
+    	$msq= "SELECT * FROM  post ORDER by id DESC";
+    	$posts = $db->query($msq)->fetchAll(PDO::FETCH_CLASS, "core_Post");
+    	$count=count($posts);
+    	$size=ceil($count/6);
+    	return $size;
 	}
 
 	function validate($post){
@@ -31,5 +41,16 @@ class Application_Models_Post extends Core_Model
 
 	function hasError(){
 		return (!empty($this->error)) ? true : false; 
+	}
+
+	function getTread($tread_id){
+		$connect = core_BDClient::getInstance();
+    	$db=$connect->getDb();
+    	$STH = $db->prepare("SELECT * FROM  post WHERE id= :tread_id");
+    	$STH->bindParam(':tread_id', $tread_id);
+    	$STH->execute();
+    	$STH->setFetchMode(PDO::FETCH_CLASS, 'core_Post');  
+    	$post=$STH->fetch();
+    	return $post;
 	}
 }

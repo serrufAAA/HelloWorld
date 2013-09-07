@@ -5,7 +5,7 @@ class core_View
     {
         if (is_array($data)) {
             extract($data);
-        }
+        } 
         include "Application/views/templateView.php";
     }
 }

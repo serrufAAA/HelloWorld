@@ -1,7 +1,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Программирование // доска обсуждений</title>
-    <link rel="stylesheet" href="css/board-style.css">
+    <link rel="stylesheet" href="./css/board-style.css">
 </head>
 <body>
 <div class="l-header">
@@ -58,18 +58,39 @@ if(!empty($comsToPost)){
             </div>
         </div>
     </div>
+    <div class="b-post-actions clearfix">
+        <form method='post'>
+            <button class="button-action button-reply" formaction="Comment/Add" name="post_id" value="<?=core_XSS::h($row->id)?>">Добавить комментарий</button>
+            <button class="button-action button-show-thread" formaction="Tread" name="tread_id" value="<?=core_XSS::h($row->id)?>">Перейти в тред</button>
+        </form>
+    </div>
+
 </div>
-<div class="b-post-actions clearfix">
-    <form method='post'>
-        <button class="button-action button-reply" formaction="Comment/Add" name="post_id" value="<?=core_XSS::h($row->id)?>">Добавить комментарий</button>
-        <button class="button-action button-show-thread">Перейти в тред</button>
-    </form>
-</div>
+
 <?php
     }
 } else {
 echo "<p>Нет ни одного треда. Хотите создать первый тред? </p>";
 }
 ?>
-</div> 
+
+    <div class="b-pager"> 
+        <span class="label">Страницы:</span> <span class="current">1</span>
+<?php
+for( $i=2; $i <= $pagesCount; $i++){
+?>
+            <a href="Main/Index/page?id=<?=$i?>"><?=$i?></a>
+<?php
+}
+?>
+    </div>
+</div>
+<?php
+if(isset($_GET['id'])){
+    echo "es";
+} else {
+    echo "no";
+}
+?> 
+
 </body>

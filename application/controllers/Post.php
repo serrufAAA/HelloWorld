@@ -1,7 +1,6 @@
 <?php
 class Application_Controllers_Post extends core_Controller
 {
-
     function actionAdd(){
     	$this->view = new core_View();
     	$model = new Application_Models_Post();
