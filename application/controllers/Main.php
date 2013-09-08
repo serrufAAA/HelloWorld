@@ -18,6 +18,6 @@ class Application_Controllers_Main extends core_Controller
         'posts' => $posts,
         'comments' => $comments,
         'pagesCount' => $pageCount
-        ));
+        ));h
     }
 }
