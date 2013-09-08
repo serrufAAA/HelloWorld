@@ -12,7 +12,7 @@ class Application_Controllers_Post extends core_Controller
     		$model->validate($post);
 			if(!$model->hasError()){
     			$model->add($post);
-    			header("Location: ../");
+    			header("Location: ../"); 
 			} 
 		} 
 		$this->view->generate('PostAddView.php', $model->error);
