@@ -7,7 +7,11 @@ class Application_Controllers_Main extends core_Controller
         $this->view = new core_View();
         $post = new Application_Models_Post;
         $comment = new Application_Models_Comment;
-        $posts=$post->getPosts();
+        $page=1;
+        if(isset($_GET['id'])){
+            $page=$_GET['id'];
+        }
+        $posts=$post->getPosts($page);
         $pageCount=$post->getPostsNumb();
         $comments=$comment->getAllComments();
         $this->view->generate('MainView.php', array(

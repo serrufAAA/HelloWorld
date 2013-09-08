@@ -10,11 +10,15 @@ class Application_Models_Post extends Core_Model
 	    $STH->execute((array)$post);
     }
 
-	function getPosts(){
+	function getPosts($page=1){
 		$connect = core_BDClient::getInstance();
     	$db=$connect->getDb();
-    	$msq= "SELECT * FROM  post ORDER by id DESC LIMIT 0,10";
-    	$posts = $db->query($msq)->fetchAll(PDO::FETCH_CLASS, "core_Post");
+    	$startPoint=($page-1)*6;
+    	$STH = $db->prepare("SELECT * FROM  post ORDER by id DESC LIMIT ?, 6");
+    	$STH->bindParam(1, $startPoint, PDO::PARAM_INT);
+    	$STH->execute();
+    	$STH->setFetchMode(PDO::FETCH_CLASS, 'core_Post');
+    	$posts = $STH->fetchAll();
     	return $posts;
 	}
 

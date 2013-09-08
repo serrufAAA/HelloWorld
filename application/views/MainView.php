@@ -77,7 +77,7 @@ echo "<p>Нет ни одного треда. Хотите создать пер
     <div class="b-pager"> 
         <span class="label">Страницы:</span> <span class="current">1</span>
 <?php
-for( $i=2; $i <= $pagesCount; $i++){
+for( $i=1; $i <= $pagesCount; $i++){
 ?>
             <a href="Main/Index/page?id=<?=$i?>"><?=$i?></a>
 <?php
@@ -85,12 +85,5 @@ for( $i=2; $i <= $pagesCount; $i++){
 ?>
     </div>
 </div>
-<?php
-if(isset($_GET['id'])){
-    echo "es";
-} else {
-    echo "no";
-}
-?> 
 
 </body>
