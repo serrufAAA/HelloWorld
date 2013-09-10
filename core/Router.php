@@ -5,7 +5,13 @@ class core_Router
     {
         $controllerName = "Main";
         $actionName     = "Index";
-        $routes         = explode("/", $_SERVER['REQUEST_URI']);
+        $url = $_SERVER['REQUEST_URI'];
+        if($getPosition=strpos($url, "?")) {
+            $editPost=substr($url, 0, $getPosition);
+        } else {
+            $editPost = $url;
+        }
+        $routes         = explode("/", $editPost);
         if (!empty($routes[2])) {
             $controllerName = $routes[2];
         }

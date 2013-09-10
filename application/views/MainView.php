@@ -39,9 +39,15 @@ if(!empty($comsToPost)){
     if($count > 3){
         $comsToPost=array_slice($comsToPost, $count-3, 3);
         $misCom=$count-3;
-        echo "<div class='b-post-info-line'>
-                Пропущено $misCom комментариев
-            </div>";
+        echo "<div class='b-post-info-line'>";
+        if($misCom == 1 || ($misCom%100 != 11 && $misCom%10 == 1)){
+            echo "Пропущен $misCom комментарий";
+        } elseif($misCom < 5 || (($misCom%100 < 12 || $misCom%100 > 21) && ($misCom%10 > 1 || $misCom%10 <4))){
+            echo "Пропущено $misCom комментария";
+        } else {
+            echo "Пропущено $misCom комментариев";
+        }
+        echo "</div>";            
     }
     foreach($comsToPost as $comToPost){
         ?>
@@ -75,12 +81,13 @@ echo "<p>Нет ни одного треда. Хотите создать пер
 ?>
 
     <div class="b-pager"> 
-        <span class="label">Страницы:</span> <span class="current">1</span>
 <?php
 for( $i=1; $i <= $pagesCount; $i++){
-?>
-            <a href="Main/Index/page?id=<?=$i?>"><?=$i?></a>
-<?php
+    if($i == $_GET['p']){
+        echo "<span class='current'>$i</span>";
+    } else {
+        echo "<a href='?p={$i}'>$i</a>";
+    }
 }
 ?>
     </div>

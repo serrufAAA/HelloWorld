@@ -8,8 +8,8 @@ class Application_Controllers_Main extends core_Controller
         $post = new Application_Models_Post;
         $comment = new Application_Models_Comment;
         $page=1;
-        if(isset($_GET['id'])){
-            $page=$_GET['id'];
+        if(isset($_GET['p'])){
+            $page=$_GET['p'];
         }
         $posts=$post->getPosts($page);
         $pageCount=$post->getPostsNumb();
