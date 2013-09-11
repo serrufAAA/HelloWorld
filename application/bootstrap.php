@@ -7,7 +7,8 @@ function __autoload($class_name){
 $config = new Application_Config();
 $config->setConfig(array(
 	'dbName' => "test.db",
-	'dbUser' => "root")
+	'dbUser' => "root",
+	 'dbPass' => " ")
 );			
 $route = new core_Router();
 $route->start();

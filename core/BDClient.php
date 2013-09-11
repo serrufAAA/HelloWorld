@@ -6,15 +6,15 @@ class core_BDClient
 	
 	static private $_instance = null;
 	
-	private function __construct($dbName, $dbUser)
+	private function __construct($dbName, $dbUser, $dbPass)
 	{
-		$this->db = new Core_DbAdapter("mysql:host=localhost;dbname=" .$dbName . "", $dbUser, "");
+		$this->db = new Core_DbAdapter("mysql:host=localhost;dbname=" .$dbName . "", $dbUser, $dbPass);
 	}
 	
-	static function getInstance($dbName='', $dbUser='')
+	static function getInstance($dbName='', $dbUser='', $dbPass='')
 	{
 		if (self::$_instance == null) {
-			self::$_instance = new core_BDClient($dbName, $dbUser);
+			self::$_instance = new core_BDClient($dbName, $dbUser, $dbPass);
 		}
 		return self::$_instance;
 	}

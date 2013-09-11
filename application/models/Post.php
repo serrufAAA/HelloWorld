@@ -16,8 +16,8 @@ class Application_Models_Post extends Core_Model
 		$connect = core_BDClient::getInstance();
     	$db=$connect->getDb();
     	$startPoint=($page-1)*6;
-    	$STH = $db->prepare("SELECT * FROM  post ORDER by id DESC LIMIT ?, 6");
-    	$STH->bindParam(1, $startPoint, PDO::PARAM_INT);
+    	$STH = $db->prepare("SELECT * FROM  post ORDER by id DESC LIMIT :limit, 6");
+    	$STH->bindParam(':limit', $startPoint, PDO::PARAM_INT);
     	$STH->execute();
     	$this->query=$STH->getSQL();
     	$this->time=$STH->getshowTime();
