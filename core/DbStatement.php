@@ -3,8 +3,6 @@ class core_DbStatement extends PDOStatement {
 
     protected $connection;
     protected $bound_params = array();
-    public $start;
-    public $end;
 
     protected function __construct(PDO $connection)
     {
@@ -74,13 +72,15 @@ class core_DbStatement extends PDOStatement {
         //$r=$a->exec("SELECT * FROM  post ORDER by id DESC");
         $end = microtime(true);
         // сохраняем запрос и результат
-        $this->start = $start;
-        $this->end = $end;
+        $time = round(($end - $start)*1000, 1);
+        $profName = core_QueryInfo::getInstance();
+        $profName->setRow($sql, $time);
         return $result;
     }
 
-    public function getshowTime(){
+    /*public function getshowTime(){
+        $tim
         return round(($this->end - $this->start)*1000, 1);
-    }
+    }*/
 }
 ?>

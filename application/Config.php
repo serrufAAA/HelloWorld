@@ -3,6 +3,6 @@ class application_Config
 {
 
 	function setConfig($arrayConfig){
-		$connect = core_BDClient::getInstance($arrayConfig['dbName'], $arrayConfig['dbUser']);
+		$connect = core_BDClient::getInstance($arrayConfig['dbName'], $arrayConfig['dbUser'], $arrayConfig['dbPass']);
 	}
 }

@@ -19,9 +19,7 @@ class Application_Controllers_Main extends core_Controller
         $this->view->generate('MainView.php', array(
         'posts' => $posts,
         'comments' => $comments,
-        'pagesCount' => $pageCount,
-        'time' => $time,
-        'sql' => $sql
+        'pagesCount' => $pageCount
         ));
     }
 }

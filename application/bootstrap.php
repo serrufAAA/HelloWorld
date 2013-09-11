@@ -8,7 +8,7 @@ $config = new Application_Config();
 $config->setConfig(array(
 	'dbName' => "test.db",
 	'dbUser' => "root",
-	 'dbPass' => " ")
+	 'dbPass' => "")
 );			
 $route = new core_Router();
 $route->start();

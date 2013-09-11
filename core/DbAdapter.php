@@ -6,4 +6,15 @@ class Core_DbAdapter extends PDO{
         $this->setAttribute(PDO::ATTR_STATEMENT_CLASS, array('core_DbStatement', array($this)));
     }
 
+    public function query($statement){
+    	$start = microtime(true);
+        $result = parent::query($statement);
+        $end = microtime(true);
+        $sql = $statement;
+        $time = round(($end - $start)*1000, 1);
+        $profName = core_QueryInfo::getInstance();
+        $profName->setRow($sql, $time);
+        return $result;
+    }
+
 }

@@ -92,13 +92,15 @@ for( $i=1; $i <= $pagesCount; $i++){
 ?>
     </div>
 </div>
-
-<?
-if(isset($sql)){
-    echo "Запрос $sql <br>";
-}
-if(isset($time)){
-    echo "Время execute $time <br>";
+<?php
+$info = core_QueryInfo::getInstance();
+if($infoObject = $info->getInfo()){
+    $totalTime = 0;
+    foreach($infoObject as $row){
+        echo "Запрос " . $row->sql . " Время " . $row->time . " мсек<br>";
+        $totalTime+=$row->time;
+    }
+echo "Суммарное время {$totalTime} мсек<br>";
 }
 ?>
 
