@@ -8,8 +8,7 @@ class core_BDClient
 	
 	private function __construct($dbName, $dbUser)
 	{
-		//$this->db = new PDO("mysql:host=localhost;dbname=test.db", "root", ""); 
-		$this->db = new PDO("mysql:host=localhost;dbname=" .$dbName . "", $dbUser, "");
+		$this->db = new Core_DbAdapter("mysql:host=localhost;dbname=" .$dbName . "", $dbUser, "");
 	}
 	
 	static function getInstance($dbName='', $dbUser='')

@@ -93,4 +93,13 @@ for( $i=1; $i <= $pagesCount; $i++){
     </div>
 </div>
 
+<?
+if(isset($sql)){
+    echo "Запрос $sql <br>";
+}
+if(isset($time)){
+    echo "Время execute $time <br>";
+}
+?>
+
 </body>

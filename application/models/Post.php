@@ -2,6 +2,8 @@
 class Application_Models_Post extends Core_Model
 {
 	public $error=array();
+	public $time;
+	public $query;
 
 	function add($post){
 		$connect = core_BDClient::getInstance();
@@ -17,6 +19,8 @@ class Application_Models_Post extends Core_Model
     	$STH = $db->prepare("SELECT * FROM  post ORDER by id DESC LIMIT ?, 6");
     	$STH->bindParam(1, $startPoint, PDO::PARAM_INT);
     	$STH->execute();
+    	$this->query=$STH->getSQL();
+    	$this->time=$STH->getshowTime();
     	$STH->setFetchMode(PDO::FETCH_CLASS, 'core_Post');
     	$posts = $STH->fetchAll();
     	return $posts;
