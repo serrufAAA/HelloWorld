@@ -22,10 +22,6 @@ class core_DbStatement extends PDOStatement {
     public function getSQL()
     {
         $sql = $this->queryString;
-
-        /**
-         * or already bounded values
-         */
         if (sizeof($this->bound_params)) {
             foreach ($this->bound_params as $key => $param) {
                 $value = $param['value'];
@@ -60,27 +56,19 @@ class core_DbStatement extends PDOStatement {
     }
 
     public function execute($param = null) {
-        // засекаем время
         $start = microtime(true);
         if(is_null($param)){
             $result = parent::execute();
         } else {
             $result = parent::execute($param);
         }
-        $a = $this->connection;
         $sql = $this->getSQL();
-        //$r=$a->exec("SELECT * FROM  post ORDER by id DESC");
         $end = microtime(true);
-        // сохраняем запрос и результат
         $time = round(($end - $start)*1000, 1);
         $profName = core_QueryInfo::getInstance();
         $profName->setRow($sql, $time);
         return $result;
     }
 
-    /*public function getshowTime(){
-        $tim
-        return round(($this->end - $this->start)*1000, 1);
-    }*/
 }
 ?>

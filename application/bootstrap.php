@@ -5,10 +5,11 @@ function __autoload($class_name){
     require_once($filePath);
 }
 $config = new Application_Config();
-$config->setConfig(array(
+$config->setConfigDb(array(
 	'dbName' => "test.db",
 	'dbUser' => "root",
 	 'dbPass' => "")
-);			
+);	
+$config->setConfigProf(true);		
 $route = new core_Router();
 $route->start();

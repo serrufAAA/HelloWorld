@@ -1,6 +1,7 @@
 <?php
 class core_QueryInfo
 {
+	public $boolFlag;
 
 	private $rows = array();
 	
@@ -15,7 +16,9 @@ class core_QueryInfo
 	}
 
 	public function setRow($sql, $time){
-		$this->rows[]= new core_ProfInfo($sql, $time);
+		if($this->boolFlag){
+			$this->rows[]= new core_ProfInfo($sql, $time);
+		}
 	}
 
 	public function getInfo(){
