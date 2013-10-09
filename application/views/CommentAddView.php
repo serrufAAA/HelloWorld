@@ -14,6 +14,7 @@
         </div>
 
         <input type=hidden name='post_id' value="<?=$_POST['post_id']?>">
+        <input type=hidden name='refer' value="<?=$_SERVER['HTTP_REFERER']?>">
 
        <div class="row row-buttons">
             <button class="button-action button-main" name="submit">Давить комент</button>

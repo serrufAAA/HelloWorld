@@ -11,9 +11,12 @@ class Application_Controllers_Comment extends core_Controller
 			$time=time();
 			$comment->time=$time;
 			$model->validate($comment);
+			$refer = $_POST['refer'];
+			$parts=explode("/", $refer);
+			$lastPart=$parts[4];
 			if(!$model->hasError()){
     			$model->add($comment);
-    			header("Location: ../");
+    			header("Location: ../" . $lastPart);
 			} 
 		}
 		$this->view->generate('CommentAddView.php', $model->error);	

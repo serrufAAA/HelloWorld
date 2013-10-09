@@ -13,3 +13,12 @@ $config->setConfigDb(array(
 $config->setConfigProf(true);		
 $route = new core_Router();
 $route->start();
+$info = core_QueryInfo::getInstance();
+if($infoObject = $info->getInfo()){
+    $totalTime = 0;
+    foreach($infoObject as $row){
+        echo "Запрос " . $row->sql . " Время " . $row->time . " мсек<br>";
+        $totalTime+=$row->time;
+    }
+echo "Суммарное время {$totalTime} мсек<br>";
+}

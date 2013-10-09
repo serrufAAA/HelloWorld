@@ -1,5 +1,8 @@
 <?php
 class Core_DbAdapter extends PDO{
+
+    private $profiler;
+    
 	public function __construct($dsn, $username = null, $password = null, $driver_options = array())
     {
         parent::__construct($dsn, $username, $password, $driver_options);

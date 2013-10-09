@@ -3,10 +3,6 @@ class Application_Models_Comment extends Core_Model
 {
     public $prof;
 
-    /*function __construct(){
-        $this->prof = new Core_Db_Profiler();
-    }*/
-
     public $error=array();
 
     function getAllComments(){

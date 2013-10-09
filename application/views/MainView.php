@@ -42,7 +42,7 @@ if(!empty($comsToPost)) :
         echo "<div class='b-post-info-line'>";
         if($misCom == 1 || ($misCom%100 != 11 && $misCom%10 == 1)){
             echo "Пропущен $misCom комментарий";
-        } elseif($misCom < 5 || (($misCom%100 < 12 || $misCom%100 > 21) && ($misCom%10 > 1 || $misCom%10 <4))){
+        } elseif($misCom < 5 || (($misCom > 22 || $misCom%100 > 21) && ($misCom%10 > 1 && $misCom%10 < 5))){
             echo "Пропущено $misCom комментария";
         } else {
             echo "Пропущено $misCom комментариев";
@@ -94,16 +94,5 @@ for( $i=1; $i <= $pagesCount; $i++){
 ?>
         </div>
     </div>
-<?php
-$info = core_QueryInfo::getInstance();
-if($infoObject = $info->getInfo()){
-    $totalTime = 0;
-    foreach($infoObject as $row){
-        echo "Запрос " . $row->sql . " Время " . $row->time . " мсек<br>";
-        $totalTime+=$row->time;
-    }
-echo "Суммарное время {$totalTime} мсек<br>";
-}
-?>
-
+    
 </body>
